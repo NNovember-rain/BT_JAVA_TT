@@ -3,6 +3,8 @@ package Link1;
 import java.util.Scanner;
 
 public class bai9 {
+    //TODO: Xem lại chú thích bài 8
+    //TODO: Code thoáng ra
     public static boolean checkTN(String s){
         StringBuilder sb=new StringBuilder(s);
         if(s.equals(sb.reverse().toString())) return true;
@@ -19,6 +21,7 @@ public class bai9 {
     }
     public static boolean OnlyNB(String n){
         for(int i=0;i<n.length();i++){
+            //TODO: không sử dụng charAt
             if(n.charAt(i)!='6' && n.charAt(i)!='0' && n.charAt(i)!='8') return false;
         }
         return true;

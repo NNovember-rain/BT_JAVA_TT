@@ -3,6 +3,7 @@ package Link1;
 import java.util.Scanner;
 
 public class bai3 {
+    //TODO: Code thoáng ra
     public static Scanner sc=new Scanner(System.in);
     public static int gcd(int a,int b){
         if(b==0) return a;

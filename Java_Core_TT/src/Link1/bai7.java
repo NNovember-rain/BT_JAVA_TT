@@ -3,6 +3,8 @@ package Link1;
 import java.util.Scanner;
 
 public class bai7 {
+    //Không nên fix cứng giá trị
+    //TODO: Code thoáng ra
     public static int[] check=new int[1000000+1];
     public static void Sang(){
         for (int i = 2; i < 1000000+1; i++) {
