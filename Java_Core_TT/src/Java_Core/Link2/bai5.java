@@ -3,6 +3,7 @@ package Java_Core.Link2;
 import java.util.Scanner;
 
 public class bai5 {
+    //TODO: Code thoáng ra
     public static void InsertArray(int[] a,int[] b, int n,int m, int p){
         for(int i=0;i<p;i++){
             System.out.print(a[i]+" ");

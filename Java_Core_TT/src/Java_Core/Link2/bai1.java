@@ -3,6 +3,8 @@ package Java_Core.Link2;
 import java.util.Scanner;
 
 public class bai1 {
+    //TODO: Code thoáng ra
+    //TODO: câu từ ghi chi tiết hơn, như Bài 1 Link 1
     public static boolean check(int[] a,int n){
         for(int i=0;i<n/2;i++){
             if(a[i]!=a[n-i-1]) return false;

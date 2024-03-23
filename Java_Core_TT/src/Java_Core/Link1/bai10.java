@@ -3,6 +3,8 @@ package Java_Core.Link1;
 import java.util.Scanner;
 
 public class bai10 {
+    //TODO: xem lại chú thích bài 8 9
+    //TODO: Code thoáng ra
     public static Scanner sc=new Scanner(System.in);
     public static boolean checkNT1(Long x){
         if(x<2) return false;
