@@ -1,4 +1,5 @@
-package Encap_inher;
+package Encap_Inher;
+
 
 public class Person {
     private String ten,diachi,sdt;
@@ -36,3 +37,4 @@ public class Person {
         this.sdt = sdt;
     }
 }
+

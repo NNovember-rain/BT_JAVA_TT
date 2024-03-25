@@ -1,9 +1,8 @@
-package Poly_Abs;
+package Poly_Abs3;
 
 public class GiangVien extends Person{
     private static int cnt=0;
     private String id,trinhDo;
-    private int tongSoTietDaDay=0;
 
     public GiangVien(String ten, String sdt, String diaChi, String trinhDo) {
         super(ten, sdt, diaChi);
@@ -29,11 +28,7 @@ public class GiangVien extends Person{
         this.trinhDo = trinhDo;
     }
 
-    public int getTongSoTietDaDay() {
-        return tongSoTietDaDay;
-    }
-
-    public void setTongSoTietDaDay(int tongSoTietDaDay) {
-        this.tongSoTietDaDay = tongSoTietDaDay;
+    public String toString(){
+        return Integer.parseInt(this.id)+"-"+this.getTen();
     }
 }

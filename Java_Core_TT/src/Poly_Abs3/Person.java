@@ -1,4 +1,4 @@
-package Poly_Abs;
+package Poly_Abs3;
 
 public class Person {
     private String ten,sdt,diaChi;

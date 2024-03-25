@@ -1,4 +1,4 @@
-package Poly_Abs;
+package Poly_Abs3;
 
 import java.util.Scanner;
 
@@ -7,7 +7,6 @@ public interface QuanLiImpl {
     void nhapDSGiangVien(Scanner sc);
     void lapBangKe(Scanner sc);
     void xemTrangThaiCuaGVvaMH();
-
     void sapXepTheoTen();
     void sapXepTheoSoTiet();
     void tinhToan();

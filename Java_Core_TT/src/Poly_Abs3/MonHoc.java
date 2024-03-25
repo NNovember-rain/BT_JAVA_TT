@@ -1,4 +1,4 @@
-package Poly_Abs;
+package Poly_Abs3;
 
 public class MonHoc {
     private static int cnt=0;
@@ -60,5 +60,8 @@ public class MonHoc {
         KinhPhi = kinhPhi;
     }
 
+    public String toString(){
+        return Integer.parseInt(this.id)+"-"+this.Ten+" ";
+    }
 
 }

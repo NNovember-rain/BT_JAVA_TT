@@ -1,4 +1,4 @@
-package Encap_inher;
+package Encap_Inher;
 
 public class Sach {
     private static int cnt=0;
@@ -56,6 +56,6 @@ public class Sach {
     }
     @Override
     public String toString(){
-        return this.getId()+"-"+this.getTen()+"-"+this.getTacGia()+"-"+this.getChuyenNganh()+"-"+this.getNamXB();
+        return Integer.parseInt(this.getId())+"-"+this.getTen();
     }
 }
