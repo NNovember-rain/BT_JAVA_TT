@@ -1,4 +1,4 @@
-package Poly_Abs3;
+package Poly_Abs;
 
 public class MonHoc {
     private static int cnt=0;

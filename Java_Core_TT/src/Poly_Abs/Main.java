@@ -1,4 +1,4 @@
-package Poly_Abs3;
+package Poly_Abs;
 import java.util.Scanner;
 
 public class Main {
