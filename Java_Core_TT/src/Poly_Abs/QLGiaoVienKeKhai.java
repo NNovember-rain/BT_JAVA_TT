@@ -230,10 +230,10 @@ public class QLGiaoVienKeKhai implements QuanLiImpl{
         }
         System.out.println("\n* Trạng thái của các giảng viên:");
         for(int i=0;i<giangVien.length;i++){
-            System.out.println("- giảng viên "+giangVien[i].getTen() +" đã dạy những môn học sau:");
+            System.out.println("- giảng viên "+giangVien[i].getTen().toUpperCase() +" đã dạy những môn học sau:");
             for(int j=0;j<monHoc.length;j++){
                 if(qlGiangday[i][j]>0){
-                    System.out.println("  +,"+monHoc[j].getTen()+" --> "+qlGiangday[i][j]+" lớp");
+                    System.out.println("  +,"+monHoc[j].getTen().toUpperCase()+" --> "+qlGiangday[i][j]+" lớp");
                 }
             }
         }

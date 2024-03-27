@@ -200,10 +200,10 @@ public class QLmuonSach {
         }
         System.out.println("\n* Trạng thái của các bạn đọc:");
         for(int i=0;i<banDoc.length;i++){
-            System.out.println("-Bạn đọc "+banDoc[i].getTen() +" đã mượn những đầu sách sau:");
+            System.out.println("-Bạn đọc "+banDoc[i].getTen().toUpperCase() +" đã mượn những đầu sách sau:");
             for(int j=0;j<sach.length;j++){
                 if(qLSachMuon[i][j]>0){
-                    System.out.println("  +, "+sach[j].getTen()+" --> "+qLSachMuon[i][j]+"quyển");
+                    System.out.println("  +, "+sach[j].getTen().toUpperCase()+" --> "+qLSachMuon[i][j]+"quyển");
                 }
             }
             System.out.println();
