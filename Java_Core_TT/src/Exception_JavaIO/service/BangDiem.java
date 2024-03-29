@@ -1,14 +1,16 @@
-package Exception_JavaIO;
+package Exception_JavaIO.service;
+
+import Exception_JavaIO.QLIMPL;
+import Exception_JavaIO.entity.MonHoc;
+import Exception_JavaIO.entity.SinhVien;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.sql.SQLOutput;
-import java.util.Locale;
 import java.util.Scanner;
 
-public class BangDiem implements QLIMPL{
+public class BangDiem implements QLIMPL {
 
     private MonHoc[] monHoc;
     private SinhVien[] sinhVien;

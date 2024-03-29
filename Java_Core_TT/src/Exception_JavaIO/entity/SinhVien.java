@@ -1,4 +1,4 @@
-package Exception_JavaIO;
+package Exception_JavaIO.entity;
 
 import java.io.Serializable;
 
