@@ -58,7 +58,7 @@ public class Main {
                         System.out.println("\n=> nằm ngoài phạm vi lựa chọn !!!\n");
                 }
             }catch (Exception e){
-                System.out.println("\nBạn đã nhập sai định dạng số nguyên hoặc quyển sách hay người đọc không có tên , hãy chọn một số nguyên từ 1->8 để sử dụng các lựa chọn !\n");
+                System.out.println("\nBạn đã nhập sai định dạng số nguyên hoặc môn học hay giảng viên không có tên , hãy chọn một số nguyên từ 1->8 để sử dụng các lựa chọn !\n");
             }
         }
     }

@@ -51,7 +51,6 @@ public class Main {
                         break;
                     case 5:
                         bangDiem.sapXepTheoMH();
-                        bangDiem.tinhTrang();
                         break;
                     case 6:
                         bangDiem.tongKet();
@@ -65,44 +64,11 @@ public class Main {
                         System.out.println("\n=> nằm ngoài phạm vi lựa chọn !!!\n");
                 }
             }catch (Exception e){
-                System.out.println("\nBạn đã nhập sai định dạng số nguyên hoặc quyển sách hay người đọc không có tên , hãy chọn một số nguyên từ 1->8 để sử dụng các lựa chọn !\n");
+                System.out.println("\nBạn đã nhập sai định dạng số nguyên hoặc môn học hay sinh viên không có tên trong danh sách, hãy chọn một số nguyên từ 1->8 để sử dụng các lựa chọn !\n");
             }
         }
     }
 }
 
-//public static void main(String[] args){
-//        Scanner sc=new Scanner(System.in);
-//        int n=Integer.parseInt(sc.nextLine());
-//        MonHoc[]x=new MonHoc[n];
-//
-//        for(int i=0;i<n;i++){
-//        String name=sc.nextLine();
-//        int sl=Integer.parseInt(sc.nextLine());;
-//        String td=sc.nextLine();
-//        x[i]=new MonHoc(name,sl,td);
-//        }
-//        try{
-//        // Ghi mảng SinhVien vào file
-//        FileOutputStream fileOut=new FileOutputStream("monhoc.txt");
-//        ObjectOutputStream objectOut=new ObjectOutputStream(fileOut);
-//        FileInputStream fileIn=new FileInputStream("monhoc.txt");
-//        ObjectInputStream objectIn=new ObjectInputStream(fileIn);
-//
-//        objectOut.writeObject(x);
-//        objectOut.close();
-//        fileOut.close();
-//
-//        MonHoc[]mhh=(MonHoc[])objectIn.readObject();
-//        objectIn.close();
-//        fileIn.close();
-//
-//        for(int i=0;i<n;i++){
-//        System.out.println(mhh[i]);
-//        }
-//
-//        }catch(Exception e){
-//        e.printStackTrace();
-//        }
-//}
+
 

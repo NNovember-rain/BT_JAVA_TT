@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -105,7 +106,7 @@ public class BangDiem implements QLIMPL{
     @Override
     public void nhapDiem(Scanner sc) {
         if(sinhVien[0]==null || monHoc[0]==null){
-            System.out.println("Hình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
+            System.out.println("\nHình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
             System.out.println();
             return;
         }
@@ -134,16 +135,16 @@ public class BangDiem implements QLIMPL{
             sodiem=Integer.parseInt(sc.nextLine());
             if(sodiem>10) System.out.println("bạn chỉ có thể chấm điểm từ 0->10 điểm , hãy chấm lại lại !");
         }while(sodiem>10);
-
         qLBangDiem[maSinhVien][maMonHoc]=sodiem;
-        System.out.println(qLBangDiem[maSinhVien][maMonHoc]);
+        System.out.println("nhập điểm thành công !");
+        System.out.println();
 
     }
 
     @Override
     public void sapXepTheoTen() {
         if(sinhVien[0]==null){
-            System.out.println("Hình như bạn quên chưa chọn thao tác 2 !!!");
+            System.out.println("\nHình như bạn quên chưa chọn thao tác 2 !!!");
             System.out.println();
             return;
         }
@@ -159,14 +160,6 @@ public class BangDiem implements QLIMPL{
                     sinhVien[i].setId(sinhVien[j].getId());
                     sinhVien[j].setId(tmpID);
 
-                    MonHoc tmpMonHoc=monHoc[i];
-                    monHoc[i]=monHoc[j];
-                    monHoc[j]=tmpMonHoc;
-
-                    String tmpIDmonHoc=monHoc[i].getId();
-                    monHoc[i].setId(monHoc[j].getId());
-                    monHoc[j].setId(tmpIDmonHoc);
-
                     int[] temp = qLBangDiem[i];
                     qLBangDiem[i] = qLBangDiem[j];
                     qLBangDiem[j] = temp;
@@ -178,46 +171,58 @@ public class BangDiem implements QLIMPL{
     @Override
     public void sapXepTheoMH() {
         if(sinhVien[0]==null || monHoc[0]==null){
-            System.out.println("Hình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
+            System.out.println("\nHình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
             System.out.println();
             return;
         }
+        System.out.println();
+        for (int i = 0; i < monHoc.length; i++) {
+            System.out.println("Môn học "+monHoc[i].getTen().toUpperCase()+" :");
+            for(int j=0;j<sinhVien.length;j++){
+                boolean check=false;
+                if(qLBangDiem[j][i]>0){
+                    check=true;
+                    System.out.println(" +, sinh viên "+ sinhVien[j].getTen().toUpperCase()+" có số điểm cho môn này là: "+qLBangDiem[j][i]);
+                }
+                if(!check) System.out.println(" +, sinh viên "+sinhVien[j].getTen().toUpperCase()+ " chưa có điểm môn này !");
+            }
 
-        for (int i = 0; i < monHoc.length - 1; i++) {
-            for (int j = i + 1; j < monHoc.length; j++) {
-                if (monHoc[i].getTen().compareTo(monHoc[j].getTen()) > 0) {
-                    SinhVien tempSinhVien = sinhVien[i];
-                    sinhVien[i] = sinhVien[j];
-                    sinhVien[j] = tempSinhVien;
+        }
+        System.out.println();
+    }
 
-                    String tmpID=sinhVien[i].getId();
-                    sinhVien[i].setId(sinhVien[j].getId());
-                    sinhVien[j].setId(tmpID);
-
-                    MonHoc tmpMonHoc=monHoc[i];
-                    monHoc[i]=monHoc[j];
-                    monHoc[j]=tmpMonHoc;
-
-                    String tmpIDmonHoc=monHoc[i].getId();
-                    monHoc[i].setId(monHoc[j].getId());
-                    monHoc[j].setId(tmpIDmonHoc);
-
-                    int[] temp = qLBangDiem[i];
-                    qLBangDiem[i] = qLBangDiem[j];
-                    qLBangDiem[j] = temp;
+    @Override
+    public void tongKet() {
+        System.out.println();
+        for (int i = 0; i < sinhVien.length; i++) {
+            System.out.println("Sinh viên "+sinhVien[i].getTen().toUpperCase()+" có những đầu điểm sau :");
+            int tongHocTrinh=0;
+            int tongDiemTichLuy=0;
+            boolean check=false;
+            for(int j=0;j<monHoc.length;j++){
+                if(qLBangDiem[i][j]>0){
+                    check=true;
+                    System.out.println(" +, môn "+ monHoc[j].getTen().toUpperCase()+" số học trình là "+monHoc[j].getdVHocTrinh()+" học trình với số điểm cho môn này là : "+qLBangDiem[i][j]+" điểm");
+                    tongHocTrinh+=monHoc[j].getdVHocTrinh();
+                    tongDiemTichLuy+=qLBangDiem[i][j]*monHoc[j].getdVHocTrinh();
                 }
             }
+            if(check) {
+                System.out.print("=>Tổng kết :"+String.format("%.2f",(double)tongDiemTichLuy/tongHocTrinh)+"\n");
+            }
+            else System.out.println("Bạn này chưa có điểm cho môn học nào !\n");
         }
+        System.out.println();
     }
 
     @Override
     public void tinhTrang() {
         if(sinhVien[0]==null || monHoc[0]==null){
-            System.out.println("Hình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
+            System.out.println("\nHình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
             System.out.println();
             return;
         }
-        System.out.println("\n* Trạng thái của các sinh viên:");
+        System.out.println("\n* Trạng thái của các sinh viên:\n");
         for(int i=0;i<sinhVien.length;i++){
             System.out.println("-sinh viên "+sinhVien[i].getTen().toUpperCase() +" có điểm số cho từng môn học như sau:");
             for(int j=0;j<monHoc.length;j++){
@@ -230,8 +235,4 @@ public class BangDiem implements QLIMPL{
         System.out.println();
     }
 
-    @Override
-    public void tongKet() {
-
-    }
 }
