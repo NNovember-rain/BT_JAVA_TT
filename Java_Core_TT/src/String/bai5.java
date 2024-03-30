@@ -3,9 +3,7 @@ package String;
 import java.util.Scanner;
 
 public class bai5 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
+    public static void solveFullName(String s){
         String[] tmp = s.split("\\s+");
         String result="";
 
@@ -16,5 +14,10 @@ public class bai5 {
             result+=" ";
         }
         System.out.println(result);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        solveFullName(s);
     }
 }

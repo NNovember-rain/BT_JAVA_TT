@@ -4,10 +4,7 @@ import Exception_JavaIO.QLIMPL;
 import Exception_JavaIO.entity.MonHoc;
 import Exception_JavaIO.entity.SinhVien;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.Scanner;
 
 public class BangDiem implements QLIMPL {
@@ -25,7 +22,6 @@ public class BangDiem implements QLIMPL {
 
     @Override
     public void nhapSinhVien(Scanner sc) {
-        SinhVien[] sinhVientmp=new SinhVien[sinhVien.length];
         System.out.println("\n-hãy nhập danh sách gồm "+sinhVien.length+" sinh viên mới :");
         for(int i=0;i<sinhVien.length;i++) {
             System.out.print("Nhập tên sinh viên thứ "+(i+1)+": ");
@@ -37,40 +33,20 @@ public class BangDiem implements QLIMPL {
             System.out.print("Nhập lớp của sinh viên: ");
             String lop=sc.nextLine();
             System.out.println();
-            sinhVientmp[i] = new SinhVien(ten,diachi,sdt,lop);
+            sinhVien[i] = new SinhVien(ten,diachi,sdt,lop);
         }
-        try{
-            FileOutputStream fileOut=new FileOutputStream("sinhvien.txt");
-            ObjectOutputStream objectOut=new ObjectOutputStream(fileOut);
-            FileInputStream fileIn=new FileInputStream("sinhvien.txt");
-            ObjectInputStream objectIn=new ObjectInputStream(fileIn);
-
-            //ghi
-            objectOut.writeObject(sinhVientmp);
-            objectOut.close();
-            fileOut.close();
-
-            //đọc
-            sinhVien=(SinhVien[])objectIn.readObject();
-            objectIn.close();
-            fileIn.close();
-
-            System.out.println("-Danh sách sinh viên: ");
-            for(int i=0;i<sinhVien.length;i++){
-                System.out.println(" +,"sinhVien[i]);
-            }
-            System.out.println();
-
-        }catch(Exception e){
-            e.printStackTrace();
+        System.out.println("-Danh sách sinh viên: ");
+        for(int i=0;i<sinhVien.length;i++){
+            System.out.println(" +,"+sinhVien[i]);
         }
+        System.out.println();
+
     }
 
     @Override
     public void nhapMonHoc(Scanner sc) {
-        MonHoc[] monHoctmp=new MonHoc[monHoc.length];
         System.out.println("\n-hãy nhập danh sách gồm "+monHoc.length+" môn học mới :");
-        for(int i=0;i<sinhVien.length;i++) {
+        for(int i=0;i<monHoc.length;i++) {
             System.out.print("Nhập tên môn học thứ "+(i+1)+": ");
             String ten=sc.nextLine();
             System.out.print("Nhập số đơn vị học trình: ");
@@ -78,33 +54,14 @@ public class BangDiem implements QLIMPL {
             System.out.print("Nhập loại môn: ");
             String loai=sc.nextLine();
             System.out.println();
-            monHoctmp[i] = new MonHoc(ten,dvht,loai);
+            monHoc[i] = new MonHoc(ten,dvht,loai);
         }
-        try{
-            FileOutputStream fileOut=new FileOutputStream("monhoc.txt");
-            ObjectOutputStream objectOut=new ObjectOutputStream(fileOut);
-            FileInputStream fileIn=new FileInputStream("monhoc.txt");
-            ObjectInputStream objectIn=new ObjectInputStream(fileIn);
-
-            //ghi
-            objectOut.writeObject(monHoctmp);
-            objectOut.close();
-            fileOut.close();
-
-            //đọc
-            monHoc=(MonHoc[])objectIn.readObject();
-            objectIn.close();
-            fileIn.close();
-
-            System.out.println("-Danh sách môn học:");
-            for(int i=0;i<monHoc.length;i++){
-                System.out.println(" +,"+monHoc[i]);
-            }
-            System.out.println();
-
-        }catch(Exception e){
-            e.printStackTrace();
+        System.out.println("-Danh sách môn học:");
+        for(int i=0;i<monHoc.length;i++){
+            System.out.println(" +,"+monHoc[i]);
         }
+        System.out.println();
+
     }
 
     @Override
@@ -114,14 +71,14 @@ public class BangDiem implements QLIMPL {
             System.out.println();
             return;
         }
-        System.out.println("-sinh viên hiện có:");
+        System.out.println("\n-sinh viên hiện có:");
         for(int i=0;i<sinhVien.length;i++){
-            System.out.println("+, "+sinhVien[i]);
+            System.out.println("+, "+Integer.parseInt(sinhVien[i].getId())+"-"+sinhVien[i].getTen());
         }
 
         System.out.println("\n-môn học hiện có:");
         for(int i=0;i<monHoc.length;i++){
-            System.out.println("+, "+monHoc[i]);
+            System.out.println("+, "+Integer.parseInt(monHoc[i].getId())+"-"+monHoc[i].getTen());
         }
 
         System.out.print("\nNhập số được gắn bên cạnh tên sinh viên để chọn sinh viên tương ứng : ");
@@ -130,7 +87,7 @@ public class BangDiem implements QLIMPL {
         int maMonHoc=Integer.parseInt(sc.nextLine());
         if(qLBangDiem[maSinhVien][maMonHoc]>0) {
             System.out.println("\nBạn chỉ có thể chấm điểm 1 môn cho 1 bạn sinh viên !");
-            System.out.println("=>Bạn đã chấm điểm môn "+ monHoc[maMonHoc]+" cho bạn sinh viên "+sinhVien[maSinhVien]+" với số điểm là: "+qLBangDiem[maSinhVien][maMonHoc]+"\n");
+            System.out.println("=>Bạn đã chấm điểm môn "+ monHoc[maMonHoc].getTen().toUpperCase()+" cho bạn sinh viên "+sinhVien[maSinhVien].getTen().toUpperCase()+" với số điểm là: "+qLBangDiem[maSinhVien][maMonHoc]+"\n");
             return;
         }
         int sodiem;
@@ -217,6 +174,28 @@ public class BangDiem implements QLIMPL {
             else System.out.println("Bạn này chưa có điểm cho môn học nào !\n");
         }
         System.out.println();
+    }
+
+    @Override
+    public void luuSVVaoFile(String s) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(s))) {
+            for (int i = 0; i < sinhVien.length; i++) {
+                writer.write( sinhVien[i].getId()+"-"+sinhVien[i].getTen()+"-"+sinhVien[i].getDiachi()+"-"+sinhVien[i].getSdt()+"-"+sinhVien[i].getLop()+"\n");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void luuMHVaoFile(String s) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(s))) {
+            for (int i = 0; i < monHoc.length; i++) {
+                writer.write( monHoc[i].getId()+"-"+monHoc[i].getTen()+"-"+monHoc[i].getLoaiMon()+"-"+monHoc[i].getdVHocTrinh()+"\n");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

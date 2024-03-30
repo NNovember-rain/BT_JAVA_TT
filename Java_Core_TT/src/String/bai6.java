@@ -3,9 +3,7 @@ package String;
 import java.util.Scanner;
 
 public class bai6 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
+    public static void solveSort(String s){
         String[] tmp = s.split("\\s+");
 
         for(int i=0;i<tmp.length-1;i++){
@@ -17,6 +15,11 @@ public class bai6 {
                 }
             }
         }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        solveSort(s);
     }
 
 }

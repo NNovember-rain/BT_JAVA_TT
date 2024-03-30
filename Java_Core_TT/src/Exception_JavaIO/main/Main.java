@@ -11,6 +11,7 @@ public class Main {
         int n = Integer.parseInt(sc.nextLine());
         System.out.print("Nhập số lượng môn học : ");
         int m = Integer.parseInt(sc.nextLine());
+        String fileMonHoc="monhoc.txt",fileSinhVien="sinhvien.txt";
 
 
         BangDiem bangDiem=new BangDiem(n,m);
@@ -19,8 +20,8 @@ public class Main {
 
         while(true) {
             System.out.println("-Pick your choise ->:");
-            System.out.println("+,Lựa chọn 1: Nhập danh sách môn học mới ");
-            System.out.println("+,Lựa chọn 2: nhập danh sách sinh viên mới");
+            System.out.println("+,Lựa chọn 1: Nhập danh sách môn học mới và lưu vào file");
+            System.out.println("+,Lựa chọn 2: nhập danh sách sinh viên mới lưu vào file");
             System.out.println("+,Lựa chọn 3: QL danh sách điểm của từng sinh viên( nhập mã sinh viên và mã môn học cùng với số điểm)");
             System.out.println("+,Lựa chọn 4: Sắp xếp quản lí theo tên sinh viên ");
             System.out.println("+,Lựa chọn 5: Sắp xếp quản lí theo tên môn học");
@@ -34,9 +35,11 @@ public class Main {
                 switch (choice) {
                     case 1:
                         bangDiem.nhapMonHoc(sc);
+                        bangDiem.luuMHVaoFile(fileMonHoc);
                         break;
                     case 2:
                         bangDiem.nhapSinhVien(sc);
+                        bangDiem.luuSVVaoFile(fileSinhVien);
                         break;
                     case 3:
                         bangDiem.nhapDiem(sc);
@@ -55,6 +58,10 @@ public class Main {
                         bangDiem.tinhTrang();
                         break;
                     case 8:
+
+                    case 9:
+                        return;
+                    case 10:
                         return;
                     default:
                         System.out.println("\n=> nằm ngoài phạm vi lựa chọn !!!\n");

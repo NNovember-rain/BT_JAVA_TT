@@ -10,4 +10,6 @@ public interface QLIMPL {
     void sapXepTheoMH();
     void tinhTrang();
     void tongKet();
+    void luuSVVaoFile(String s);
+    void luuMHVaoFile(String s);
 }
