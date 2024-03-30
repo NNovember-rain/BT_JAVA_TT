@@ -56,6 +56,6 @@ public class SinhVien implements Serializable {
         this.lop = lop;
     }
     public String toString(){
-        return Integer.parseInt(this.getId())+"-"+this.getTen();
+        return this.getId()+"-"+this.getTen()+"-"+this.getDiachi()+"-"+this.getSdt()+"-"+this.getLop();
     }
 }

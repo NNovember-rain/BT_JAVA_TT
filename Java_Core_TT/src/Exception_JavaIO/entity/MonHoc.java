@@ -48,6 +48,6 @@ public class MonHoc implements Serializable {
     }
 
     public String toString(){
-        return Integer.parseInt(this.getId())+"-"+this.getTen();
+        return this.getId()+"-"+this.getTen()+"-"+this.getLoaiMon()+"-"+this.getdVHocTrinh();
     }
 }

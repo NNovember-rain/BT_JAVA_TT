@@ -55,8 +55,9 @@ public class BangDiem implements QLIMPL {
             objectIn.close();
             fileIn.close();
 
+            System.out.println("-Danh sách sinh viên: ");
             for(int i=0;i<sinhVien.length;i++){
-                System.out.println(sinhVien[i]);
+                System.out.println(" +,"sinhVien[i]);
             }
             System.out.println();
 
@@ -95,8 +96,9 @@ public class BangDiem implements QLIMPL {
             objectIn.close();
             fileIn.close();
 
+            System.out.println("-Danh sách môn học:");
             for(int i=0;i<monHoc.length;i++){
-                System.out.println(monHoc[i]);
+                System.out.println(" +,"+monHoc[i]);
             }
             System.out.println();
 
