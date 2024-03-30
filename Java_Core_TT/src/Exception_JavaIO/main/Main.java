@@ -58,10 +58,6 @@ public class Main {
                         bangDiem.tinhTrang();
                         break;
                     case 8:
-
-                    case 9:
-                        return;
-                    case 10:
                         return;
                     default:
                         System.out.println("\n=> nằm ngoài phạm vi lựa chọn !!!\n");
