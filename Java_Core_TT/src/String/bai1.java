@@ -15,6 +15,7 @@ public class bai1 {
             String s=i+"";
             if(checkTN(s)){
                 System.out.println(s+" ");
+                System.out.printf("HI");
             }
         }
     }
