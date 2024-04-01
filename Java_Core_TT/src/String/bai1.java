@@ -1,7 +1,5 @@
 package String;
 
-import java.util.Scanner;
-
 public class bai1 {
     public static boolean checkTN(String s){
         for(int i=0;i<s.length()/2;i++){
@@ -10,12 +8,10 @@ public class bai1 {
         return true;
     }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
         for(int i = (int) Math.pow(10,5); i<Math.pow(10,6); i++){
             String s=i+"";
             if(checkTN(s)){
                 System.out.println(s+" ");
-                System.out.printf("HI");
             }
         }
     }
