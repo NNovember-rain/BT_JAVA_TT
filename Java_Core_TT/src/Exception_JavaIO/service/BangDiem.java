@@ -132,8 +132,6 @@ public class BangDiem implements QLIMPL {
     @Override
     public void sapXepTheoMH() {
         if(sinhVien[0]==null || monHoc[0]==null){
-            System.out.println("\nHình như bạn quên chưa chọn thao tác 1 hoặc 2 !!!");
-            System.out.println();
             return;
         }
         System.out.println();
